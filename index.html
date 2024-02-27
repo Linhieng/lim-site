@@ -23,29 +23,29 @@
     <div class="container">
         <li class="box box-1">
             <input type="radio" name="radios">
-            <a class="box__btn" href="javascript:;">WAITING</a>
-            <span class="box__info">???</span>
-        </label>
+            <a class="box__btn" href="https://blog.linhieng.com" target="_blank">ENTRY</a>
+            <span class="box__info">BLOG</span>
+        </li>
         <li class="box box-2">
             <input type="radio" name="radios">
             <a class="box__btn" href="javascript:;">WAITING</a>
             <span class="box__info">简历</span>
-        </label>
+        </li>
         <li class="box box-3">
             <input type="radio" name="radios" checked>
-            <a class="box__btn" href="https://blog.linhieng.com" target="_blank">ENTRY</a>
-            <span class="box__info">BLOG</span>
-        </label>
+            <a class="box__btn" href="https://github.com/Linhieng" target="_blank">ENTRY</a>
+            <span class="box__info">GITHUB</span>
+        </li>
         <li class="box box-4">
             <input type="radio" name="radios">
             <a class="box__btn" href="javascript:;">WAITING</a>
             <span class="box__info">作品集</span>
-        </label>
+        </li>
         <li class="box box-5">
             <input type="radio" name="radios">
-            <a class="box__btn" href="javascript:;">WAITING</a>
-            <span class="box__info">???</span>
-        </label>
+            <a class="box__btn" href="https://blog.csdn.net/linhieng" target="_blank">ENTRY</a>
+            <span class="box__info">CSDN</span>
+        </li>
     </div>
 
     <!-- 变量和图片 -->
@@ -136,6 +136,7 @@
                 transition: filter var(--transition-duration);
 
                 position: relative;
+
                 /* 由于移动端无 hover，所以这里借助 radio 实现移动端的动画效果
                 同时，这也导致了后面要分开 hover 和 checked 两种情况
                 */
@@ -156,6 +157,7 @@
             .container:hover .box {
                 filter: grayscale(100%) opacity(24%);
             }
+
             .container .box:hover {
                 filter: grayscale(0%) opacity(100%);
             }
@@ -175,14 +177,33 @@
                 }
             }
 
-            .container:has(.box:nth-child(1):hover) { grid-template-columns: var(--expand-1); }
-            .container:has(.box:nth-child(2):hover) { grid-template-columns: var(--expand-2); }
-            .container:has(.box:nth-child(3):hover) { grid-template-columns: var(--expand-3); }
-            .container:has(.box:nth-child(4):hover) { grid-template-columns: var(--expand-4); }
-            .container:has(.box:nth-child(5):hover) { grid-template-columns: var(--expand-5); }
+            .container:has(.box:nth-child(1):hover) {
+                grid-template-columns: var(--expand-1);
+            }
 
-            .box:nth-child(odd) { transform: translateY(-16px); }
-            .box:nth-child(even) { transform: translateY(16px); }
+            .container:has(.box:nth-child(2):hover) {
+                grid-template-columns: var(--expand-2);
+            }
+
+            .container:has(.box:nth-child(3):hover) {
+                grid-template-columns: var(--expand-3);
+            }
+
+            .container:has(.box:nth-child(4):hover) {
+                grid-template-columns: var(--expand-4);
+            }
+
+            .container:has(.box:nth-child(5):hover) {
+                grid-template-columns: var(--expand-5);
+            }
+
+            .box:nth-child(odd) {
+                transform: translateY(-16px);
+            }
+
+            .box:nth-child(even) {
+                transform: translateY(16px);
+            }
 
         }
 
@@ -200,16 +221,34 @@
                 }
             }
 
-            .container:has(.box:nth-child(1):hover) { grid-template-rows: var(--expand-1); }
-            .container:has(.box:nth-child(2):hover) { grid-template-rows: var(--expand-2); }
-            .container:has(.box:nth-child(3):hover) { grid-template-rows: var(--expand-3); }
-            .container:has(.box:nth-child(4):hover) { grid-template-rows: var(--expand-4); }
-            .container:has(.box:nth-child(5):hover) { grid-template-rows: var(--expand-5); }
+            .container:has(.box:nth-child(1):hover) {
+                grid-template-rows: var(--expand-1);
+            }
 
-            .box:nth-child(odd) { transform: translateX(-16px); }
-            .box:nth-child(even) { transform: translateX(16px); }
+            .container:has(.box:nth-child(2):hover) {
+                grid-template-rows: var(--expand-2);
+            }
+
+            .container:has(.box:nth-child(3):hover) {
+                grid-template-rows: var(--expand-3);
+            }
+
+            .container:has(.box:nth-child(4):hover) {
+                grid-template-rows: var(--expand-4);
+            }
+
+            .container:has(.box:nth-child(5):hover) {
+                grid-template-rows: var(--expand-5);
+            }
+
+            .box:nth-child(odd) {
+                transform: translateX(-16px);
+            }
+
+            .box:nth-child(even) {
+                transform: translateX(16px);
+            }
         }
-
     </style>
 
     <!-- Phone，无 hover -->
@@ -226,6 +265,7 @@
                     background-position-y: top;
 
                     filter: grayscale(100%) opacity(24%);
+
                     &:has(input:checked) {
                         filter: grayscale(0%) opacity(100%);
                     }
@@ -233,14 +273,33 @@
             }
 
 
-            .container:has(.box:nth-child(1) input:checked) { grid-template-rows: var(--expand-1); }
-            .container:has(.box:nth-child(2) input:checked) { grid-template-rows: var(--expand-2); }
-            .container:has(.box:nth-child(3) input:checked) { grid-template-rows: var(--expand-3); }
-            .container:has(.box:nth-child(4) input:checked) { grid-template-rows: var(--expand-4); }
-            .container:has(.box:nth-child(5) input:checked) { grid-template-rows: var(--expand-5); }
+            .container:has(.box:nth-child(1) input:checked) {
+                grid-template-rows: var(--expand-1);
+            }
 
-            .box:nth-child(odd) { transform: translateX(-16px); }
-            .box:nth-child(even) { transform: translateX(16px); }
+            .container:has(.box:nth-child(2) input:checked) {
+                grid-template-rows: var(--expand-2);
+            }
+
+            .container:has(.box:nth-child(3) input:checked) {
+                grid-template-rows: var(--expand-3);
+            }
+
+            .container:has(.box:nth-child(4) input:checked) {
+                grid-template-rows: var(--expand-4);
+            }
+
+            .container:has(.box:nth-child(5) input:checked) {
+                grid-template-rows: var(--expand-5);
+            }
+
+            .box:nth-child(odd) {
+                transform: translateX(-16px);
+            }
+
+            .box:nth-child(even) {
+                transform: translateX(16px);
+            }
         }
     </style>
 
@@ -299,11 +358,13 @@
                 position: absolute;
                 top: 0;
             }
+
             .box__btn::before {
                 right: 100%;
                 border-right-color: black;
                 border-bottom-color: black;
             }
+
             .box__btn::after {
                 left: 100%;
                 border-left-color: black;
@@ -331,8 +392,13 @@
         }
 
         @media (hover: hover) and (max-width: 800px) {
-            .box:nth-child(odd) .box__btn { transform: translateX(-60px); }
-            .box:nth-child(even) .box__btn { transform: translateX(60px); }
+            .box:nth-child(odd) .box__btn {
+                transform: translateX(-60px);
+            }
+
+            .box:nth-child(even) .box__btn {
+                transform: translateX(60px);
+            }
 
             /* 不能放前面，因为两者优先级相同。 */
             .box:hover .box__btn {
@@ -349,22 +415,24 @@
                 transition-delay: var(--btn-delay);
             }
 
-            .box:nth-child(odd) .box__btn { transform: translateX(-60px); }
-            .box:nth-child(even) .box__btn { transform: translateX(60px); }
+            .box:nth-child(odd) .box__btn {
+                transform: translateX(-60px);
+            }
+
+            .box:nth-child(even) .box__btn {
+                transform: translateX(60px);
+            }
         }
-
-
-
     </style>
 
     <!-- 处理 btn 和 radio 兼容问题：控制层级 -->
     <style>
-
         /* 默认 radio 层级高 */
         .box {
             .box__btn {
                 z-index: 10;
             }
+
             input[type=radio] {
                 z-index: 15;
             }
@@ -481,6 +549,7 @@
                 a {
                     font-size: 8px;
                 }
+
                 img {
                     width: 8px;
                 }
