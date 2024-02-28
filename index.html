@@ -17,6 +17,18 @@
     <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+
+    <script>
+        try {
+            const agent = navigator.userAgent
+            const chromeVersion = agent.match(/Chrome\/(\d+)\./i)[1]
+            if (Number(chromeVersion) < 120) {
+                throw new Error()
+            }
+        } catch (error) {
+            document.body.innerHTML = `<h1>你的谷歌内核版本过低，请使用 Edge 浏览器进行访问</h1>`
+        }
+    </script>
 </head>
 
 <body>
