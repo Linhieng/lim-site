@@ -131,7 +131,7 @@
                 grid-template-columns var(--transition-duration),
                 grid-template-rows var(--transition-duration);
 
-            .box {
+            & .box {
                 background-size: cover;
                 transition: filter var(--transition-duration);
 
@@ -140,7 +140,7 @@
                 /* 由于移动端无 hover，所以这里借助 radio 实现移动端的动画效果
                 同时，这也导致了后面要分开 hover 和 checked 两种情况
                 */
-                input[type=radio] {
+                & input[type=radio] {
                     opacity: 0;
                     position: absolute;
                     width: 100%;
@@ -170,32 +170,18 @@
                 width: 800px;
                 height: 500px;
 
-                .box {
+                & .box {
                     background-image: var(--img-v);
                     background-position-x: center;
                     background-position-y: center;
                 }
             }
 
-            .container:has(.box:nth-child(1):hover) {
-                grid-template-columns: var(--expand-1);
-            }
-
-            .container:has(.box:nth-child(2):hover) {
-                grid-template-columns: var(--expand-2);
-            }
-
-            .container:has(.box:nth-child(3):hover) {
-                grid-template-columns: var(--expand-3);
-            }
-
-            .container:has(.box:nth-child(4):hover) {
-                grid-template-columns: var(--expand-4);
-            }
-
-            .container:has(.box:nth-child(5):hover) {
-                grid-template-columns: var(--expand-5);
-            }
+            .container:has(.box:nth-child(1):hover) { grid-template-columns: var(--expand-1); }
+            .container:has(.box:nth-child(2):hover) { grid-template-columns: var(--expand-2); }
+            .container:has(.box:nth-child(3):hover) { grid-template-columns: var(--expand-3); }
+            .container:has(.box:nth-child(4):hover) { grid-template-columns: var(--expand-4); }
+            .container:has(.box:nth-child(5):hover) { grid-template-columns: var(--expand-5); }
 
             .box:nth-child(odd) {
                 transform: translateY(-16px);
@@ -214,32 +200,18 @@
                 width: 80vw;
                 height: 90vh;
 
-                .box {
+                & .box {
                     background-image: var(--img-h);
                     background-position-x: center;
                     background-position-y: top;
                 }
             }
 
-            .container:has(.box:nth-child(1):hover) {
-                grid-template-rows: var(--expand-1);
-            }
-
-            .container:has(.box:nth-child(2):hover) {
-                grid-template-rows: var(--expand-2);
-            }
-
-            .container:has(.box:nth-child(3):hover) {
-                grid-template-rows: var(--expand-3);
-            }
-
-            .container:has(.box:nth-child(4):hover) {
-                grid-template-rows: var(--expand-4);
-            }
-
-            .container:has(.box:nth-child(5):hover) {
-                grid-template-rows: var(--expand-5);
-            }
+            .container:has(.box:nth-child(1):hover) { grid-template-rows: var(--expand-1); }
+            .container:has(.box:nth-child(2):hover) { grid-template-rows: var(--expand-2); }
+            .container:has(.box:nth-child(3):hover) { grid-template-rows: var(--expand-3); }
+            .container:has(.box:nth-child(4):hover) { grid-template-rows: var(--expand-4); }
+            .container:has(.box:nth-child(5):hover) { grid-template-rows: var(--expand-5); }
 
             .box:nth-child(odd) {
                 transform: translateX(-16px);
@@ -259,7 +231,7 @@
                 width: 300px;
                 height: 90vh;
 
-                .box {
+                & .box {
                     background-image: var(--img-h);
                     background-position-x: center;
                     background-position-y: top;
@@ -273,25 +245,11 @@
             }
 
 
-            .container:has(.box:nth-child(1) input:checked) {
-                grid-template-rows: var(--expand-1);
-            }
-
-            .container:has(.box:nth-child(2) input:checked) {
-                grid-template-rows: var(--expand-2);
-            }
-
-            .container:has(.box:nth-child(3) input:checked) {
-                grid-template-rows: var(--expand-3);
-            }
-
-            .container:has(.box:nth-child(4) input:checked) {
-                grid-template-rows: var(--expand-4);
-            }
-
-            .container:has(.box:nth-child(5) input:checked) {
-                grid-template-rows: var(--expand-5);
-            }
+            .container:has(.box:nth-child(1) input:checked) { grid-template-rows: var(--expand-1); }
+            .container:has(.box:nth-child(2) input:checked) { grid-template-rows: var(--expand-2); }
+            .container:has(.box:nth-child(3) input:checked) { grid-template-rows: var(--expand-3); }
+            .container:has(.box:nth-child(4) input:checked) { grid-template-rows: var(--expand-4); }
+            .container:has(.box:nth-child(5) input:checked) { grid-template-rows: var(--expand-5); }
 
             .box:nth-child(odd) {
                 transform: translateX(-16px);
@@ -313,7 +271,7 @@
             display: flex;
             justify-content: center;
 
-            .box__btn {
+            & .box__btn {
                 /* 字体 */
                 color: #fff;
                 font-style: italic;
@@ -379,7 +337,7 @@
         @media (hover: hover) and (min-width: 800px) {
 
             .box {
-                .box__btn {
+                & .box__btn {
                     transform: translateY(60px);
                 }
 
@@ -429,11 +387,11 @@
     <style>
         /* 默认 radio 层级高 */
         .box {
-            .box__btn {
+            & .box__btn {
                 z-index: 10;
             }
 
-            input[type=radio] {
+            & input[type=radio] {
                 z-index: 15;
             }
         }
@@ -456,7 +414,7 @@
         .box {
             overflow: hidden;
 
-            .box__info {
+            & .box__info {
                 padding: 0 20px;
                 border-radius: 6px;
                 font-size: 2rem;
@@ -514,13 +472,13 @@
         footer {
             display: flex;
 
-            img {
+            & img {
                 width: 12px;
                 height: auto;
                 margin-right: 2px;
             }
 
-            a {
+            & a {
                 font-size: 10px;
                 color: #eee;
                 margin-right: 1rem;
@@ -546,11 +504,11 @@
                 flex-wrap: wrap;
                 justify-content: center;
 
-                a {
+                & a {
                     font-size: 8px;
                 }
 
-                img {
+                & img {
                     width: 8px;
                 }
             }
