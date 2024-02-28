@@ -26,7 +26,9 @@
                 throw new Error()
             }
         } catch (error) {
-            document.body.innerHTML = `<h1>你的谷歌内核版本过低，请使用 Edge 浏览器进行访问</h1>`
+            setTimeout(() => {
+                document.body.innerHTML = `<h1>你的谷歌内核版本过低，请使用 Edge 浏览器进行访问</h1>`
+            })
         }
     </script>
 </head>
