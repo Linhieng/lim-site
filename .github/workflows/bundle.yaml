@@ -1,0 +1,35 @@
+name: Bundle
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    permissions:
+      pages: write
+      id-token: write
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '21'
+
+    - name: Run bundle script
+      run: node bundle.js
+
+    - name: Push dist directory to dist branch
+      run: |
+        git config --local user.email "linhieng@qq.com"
+        git config --local user.name "GitHub Action"
+        git checkout -b dist
+        git add -f dist/
+        git commit -m "Deploy dist directory"
+        git push -f origin dist
