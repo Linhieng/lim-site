@@ -21,7 +21,7 @@ jobs:
       - name: Run bundle script
         run: node bundle.js
 
-  push dist branch:
+  push:
     needs: bundle
     runs-on: ubuntu-latest
 
