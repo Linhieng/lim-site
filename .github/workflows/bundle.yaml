@@ -33,4 +33,5 @@ jobs:
           git checkout -b dist
           git add -f dist/
           git commit -m "Deploy dist directory"
+          git remote add origin https://github.com/Linhieng/lim-site.git
           git push -f origin dist
