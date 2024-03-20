@@ -71,12 +71,12 @@ function resolveToAbsolutionPath(parentDir, links) {
 function outputToDist(fileData, destPath) {
     const dir = path.dirname(destPath)
     if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir, {recursive: true})
+        fs.mkdirSync(dir, { recursive: true })
     }
 
     if (typeof fileData)
 
-    fs.writeFileSync(destPath, fileData, 'utf8')
+        fs.writeFileSync(destPath, fileData, 'utf8')
 }
 /**
  *
@@ -86,19 +86,28 @@ function outputToDist(fileData, destPath) {
 function copyToDist(src, dest) {
     const dir = path.dirname(dest)
     if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir, {recursive: true})
+        fs.mkdirSync(dir, { recursive: true })
     }
     fs.copyFileSync(src, dest)
 }
+
+// TODO: 未能解析的链接
+const unParseLink = [
+    '/assets/font/SmileySans-Oblique.eot',
+    '/assets/font/SmileySans-Oblique.woff',
+    '/assets/font/SmileySans-Oblique.ttf',
+    '/assets/font/SmileySans-Oblique.svg',
+    '/assets/img/beian-logo.png',
+    'assets/img/link.png',
+    'index.html'
+]
 
 function main(entryHtml = 'src/index.html') {
     const externalFiles = parseHTML(entryHtml)
     console.log('外部文件引用:')
     externalFiles.forEach(file => console.log(file))
 
-    // TODO: css 中的外部文件未检索
-    externalFiles.push('assets/img/link.png')
-    externalFiles.push('index.html')
+    externalFiles.push(...unParseLink)
     const realPath = resolveToAbsolutionPath('src', externalFiles)
     console.log('外部文件解析成实际路径:')
     realPath.forEach(file => console.log(file))
@@ -110,7 +119,7 @@ function main(entryHtml = 'src/index.html') {
     // 将文件输出到 dist 目录中
     realPath.forEach((file, index) => {
         if (file.endsWith('.html')) {
-            const fileData =  fs.readFileSync(file, 'utf8')
+            const fileData = fs.readFileSync(file, 'utf8')
                 .split(/\r?\n/)
                 .map(str => str.trim())
                 .join('')
@@ -125,5 +134,5 @@ function main(entryHtml = 'src/index.html') {
 try {
     main()
 } catch (error) {
-    console.log(error);
+    console.log(error)
 }

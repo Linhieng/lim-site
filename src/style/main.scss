@@ -1,5 +1,5 @@
 body {
-    font-family: 'Times New Roman', sans-serif;
+    font: 16px '得意黑', 'Times New Roman', serif;
     background-color: #f4f4f4;
     color: #333;
     padding: 20px;
@@ -7,11 +7,12 @@ body {
 
 header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 
     h1 {
+        font: 2rem '黑体', '标准黑体', serif;
         font-size: 2.5em;
-        color: #007BFF;
+        color: black;
     }
 }
 
@@ -20,7 +21,6 @@ main p, main a, footer p, footer a {
 }
 
 main {
-
     max-width: 600px;
     margin: auto;
 
@@ -29,18 +29,22 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 
-    .out-link p,
-    div p {
+    .link-wrapper h2 {
         margin: 0;
-        padding-bottom: 10px;
-        font-size: 24px;
+        padding-bottom: 4px;
+        font-size: 1.6rem;
+        font-weight: normal;
         color: #007BFF;
         border-bottom: 3px solid #007BFF;
+    }
+    .link-wrapper li {
+        font-size: 1.2rem;
     }
 
     ul {
         list-style: none;
         padding: 0;
+        margin: 10px 0;
     }
 
     ul li {
@@ -72,7 +76,7 @@ main {
 
 
     /* 个人链接样式 */
-    .link-wrapper:nth-child(2) p {
+    .link-wrapper:nth-child(2) h2 {
         color: #28a745;
         border-bottom-color: #28a745;
     }

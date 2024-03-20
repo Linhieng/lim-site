@@ -4,39 +4,28 @@ on:
   push:
     branches:
       - main
-permissions:
-  contents: write
 
 jobs:
   bundle:
-    permissions:
-      pages: write
-      id-token: write
-      contents: write
-
-
     runs-on: ubuntu-latest
+    permissions: # PUSH 权限要求
+      contents: write
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Install Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 21
-
-      - name: Run bundle script
+          node-version: 'lts/Hydrogen'
+      - name: Run bundle script to generate dist folder
         run: node bundle.js
-
-      - name: Push dist branch
-        run: |
-          git config user.name linhieng
-          git config user.email linhieng@qq.com
-          git checkout -b dist
-          git add -f dist/
-          git commit -m "Deploy dist directory"
-          git remote remove origin
-          git remote add origin https://github.com/Linhieng/lim-site.git
-          git push -f origin dist
-        env:
+      - run: |
+          git config user.name github-action
+          git config user.email github-action@github.com
+      - run: git rm -r --ignore-unmatch -- *
+      - run: git rm -r .github/*
+      - run: mv dist/* .
+      - run: git add .
+      - run: git commit -m "github action auto push"
+      - run: git switch -c dist
+      - run: git push -f origin dist
+        env: # PUSH 权限要求
           github_token: ${{ secrets.DEPENDABOT_TOKEN }}
