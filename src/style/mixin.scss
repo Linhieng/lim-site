@@ -1,0 +1,10 @@
+@mixin phone {
+    @media (hover: hover) {
+        @content;
+    }
+}
+@mixin width-big {
+    @media screen and (min-width: 700) {
+        @content;
+    }
+}
