@@ -21,7 +21,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 21
 
       - name: Run bundle script
         run: node bundle.js
@@ -33,5 +33,6 @@ jobs:
           git checkout -b dist
           git add -f dist/
           git commit -m "Deploy dist directory"
+          git remote remove origin
           git remote add origin https://github.com/Linhieng/lim-site.git
           git push -f origin dist
