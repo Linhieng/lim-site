@@ -36,3 +36,5 @@ jobs:
           git remote remove origin
           git remote add origin https://github.com/Linhieng/lim-site.git
           git push -f origin dist
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
